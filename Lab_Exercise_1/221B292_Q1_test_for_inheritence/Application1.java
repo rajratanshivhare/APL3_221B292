@@ -9,7 +9,7 @@ class Mother {
 class Child extends Mother {
 }
 
-class Application {
+class Application1 {
     public static void main(String args[]) {
         Mother m = new Mother();
         m.show(); 
