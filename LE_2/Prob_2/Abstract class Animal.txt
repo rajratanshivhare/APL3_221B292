@@ -39,12 +39,12 @@ class Lion extends Animal {
     }
 }
 
-// Voice class to prepare and play animal voices
-class Voice {
+// Voice2 class enforcing the correct method execution order using Template Method
+class Voice2 {
     private Animal[] animals = new Animal[5]; // Array of Animal references
 
     // Method to initialize the animal array
-    public void prepareVoice() {
+    private void prepareVoice() {
         animals[0] = new Cow();
         animals[1] = new Dog();
         animals[2] = new Pig();
@@ -53,18 +53,23 @@ class Voice {
     }
 
     // Method to call makeVoice() for each animal
-    public void hear() {
+    private void hear() {
         for (Animal animal : animals) {
             animal.makeVoice();
         }
+    }
+
+    // Template method ensuring the correct order of execution
+    public void templateMethod() {
+        prepareVoice(); // Step 1: Prepare animals
+        hear();         // Step 2: Hear their voices
     }
 }
 
 // Test class with main method
 public class Test {
     public static void main(String[] args) {
-        Voice voice = new Voice();
-        voice.prepareVoice();  // Prepare the animal voices
-        voice.hear();          // Hear the different animal sounds
+        Voice2 voice = new Voice2();
+        voice.templateMethod(); // Enforces correct sequence
     }
 }
